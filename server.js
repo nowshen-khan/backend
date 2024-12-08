@@ -17,7 +17,17 @@ dotenv.config();
 connectDB();
 
 app.use(express.json());
-app.use(cors({ origin: 'https://blog-website-frontend-wheat.vercel.app/', credentials: true }));
+app.use(cors({  origin: (origin, callback) => {
+      const allowedOrigins = [
+        'https://blog-website-frontend-wheat.vercel.app',
+        'https://frontend-iota-green.vercel.app/',
+      ]; // Add all your allowed origins here
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    }, credentials: true }));
 
 app.use("/api/auth", authRoutes);
 app.use("/api", authRoutes)
