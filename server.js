@@ -37,11 +37,7 @@ app.get("/", (req, res) => {
 // Route to send email
 app.post("/send-email", sendEmail);
 
-const apiUrl = import.meta.env.VITE_API_URL;
 
-fetch(`${apiUrl}/api`)
-    .then(response => response.json())
-    .then(data => console.log(data)); // "Hello from Backend!"
 
 
 // const PORT = process.env.PORT || 5000;
