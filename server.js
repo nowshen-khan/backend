@@ -17,7 +17,7 @@ dotenv.config();
 connectDB();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: 'https://frontend-iota-green.vercel.app/', credentials: true }));
 
 app.use("/api/auth", authRoutes);
 app.use("/api", authRoutes)
