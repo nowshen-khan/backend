@@ -17,7 +17,7 @@ dotenv.config();
 connectDB();
 
 app.use(express.json());
-app.use(cors({ origin: 'https://blog-website-frontend-wheat.vercel.app', credentials: true }));
+app.use(cors({ origin: '', credentials: true }));
 
 app.use("/api/auth", authRoutes);
 app.use("/api", authRoutes)
